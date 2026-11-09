@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DevScope – Recherche</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="m-0 min-h-screen font-['Inter',system-ui,sans-serif] bg-[#0B1220] text-[#E6EDF7] bg-[radial-gradient(#1B2742_1px,transparent_1px)] bg-[length:24px_24px]">
+
+  <!-- NAVBAR -->
+  <nav class="flex flex-wrap items-center justify-between gap-2 px-8 py-2 min-h-16 box-border bg-[#0B1220] border-b border-[#1F2A44]">
+    <div class="font-['JetBrains_Mono',monospace] font-semibold text-lg">
+      <span class="text-[#2DD4BF]">&lt;/&gt;</span> DevScope
+    </div>
+
+    <div class="flex flex-wrap items-center gap-2">
+      <a href="index.html" class="px-4 py-3 rounded-lg bg-[#13213B] text-[#2DD4BF] font-semibold text-[15px] no-underline">Recherche</a>
+      <a href="shortlist.html" class="px-4 py-3 rounded-lg text-[#9FB0CA] text-[15px] no-underline hover:text-[#E6EDF7]">Shortlist</a>
+      <span class="font-['JetBrains_Mono',monospace] text-xs bg-[#13213B] text-[#9FB0CA] px-2.5 py-1.5 rounded-md border border-[#1F2A44]">rate_limit: 58</span>
+    </div>
+  </nav>
+
+  <main class="max-w-[680px] mx-auto px-6 pt-[88px] pb-8 box-border">
+
+    <div class="font-['JetBrains_Mono',monospace] text-sm text-[#2DD4BF] mb-3">// recrutement tech</div>
+
+    <h1 class="text-[44px] leading-[1.1] font-bold m-0 mb-4">
+      Trouvez le bon développeur, <span class="text-[#2DD4BF]">analysez son code</span>.
+    </h1>
+
+    <p class="m-0 mb-8 text-[17px] text-[#9FB0CA]">
+      Entrez un nom d’utilisateur GitHub : profil, dépôts et activité, puis ajoutez-le à votre shortlist.
+    </p>
+
+    <div class="bg-[#111A2E] border border-[#1F2A44] rounded-xl p-5">
+      <label for="u" class="block text-sm font-semibold mb-1.5">Nom d’utilisateur</label>
+
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="font-['JetBrains_Mono',monospace] text-sm text-[#9FB0CA]">github.com/</span>
+
+        <input id="u" value="-nom--"
+          class="flex-1 min-w-[180px] min-h-11 box-border px-3.5 py-3 rounded-lg bg-[#0B1220] text-[#E6EDF7] border border-[#9FB0CA] font-['JetBrains_Mono',monospace] text-[15px] focus:outline-none">
+
+        <button
+          class="min-h-11 px-5 py-3 rounded-lg border-0 bg-[#2DD4BF] text-[#04201C] font-bold text-[15px] font-['Inter',sans-serif]">
+          Analyser
+        </button>
+      </div>
+
+    </div>
+
+    <pre class="font-['JetBrains_Mono',monospace] text-[13px] leading-[1.7] text-[#9FB0CA] mt-8 mb-0">{ "login": "username", "repos": 42, "followers": 310 }</pre>
+  </main>
+
+</body>
+</html>
