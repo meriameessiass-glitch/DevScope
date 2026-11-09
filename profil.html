@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DevScope – Profil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="m-0 min-h-screen font-['Inter',system-ui,sans-serif] bg-[#0B1220] text-[#E6EDF7] bg-[radial-gradient(#1B2742_1px,transparent_1px)] bg-[length:24px_24px]">
+ <header>
+  <nav class="flex flex-wrap items-center justify-between gap-2 px-8 py-2 min-h-16 box-border bg-[#0B1220] border-b border-[#1F2A44]">
+    <div class="font-['JetBrains_Mono',monospace] font-semibold text-lg">
+      <span class="text-[#2DD4BF]">&lt;/&gt;</span> DevScope
+    </div>
+
+    <div class="flex flex-wrap items-center gap-2">
+      <a href="index.html" class="px-4 py-3 rounded-lg text-[#9FB0CA] text-[15px] no-underline hover:text-[#E6EDF7]">Recherche</a>
+      <a href="shortlist.html" class="px-4 py-3 rounded-lg text-[#9FB0CA] text-[15px] no-underline hover:text-[#E6EDF7]">Shortlist</a>
+      <span class="font-['JetBrains_Mono',monospace] text-xs bg-[#13213B] text-[#9FB0CA] px-2.5 py-1.5 rounded-md border border-[#1F2A44]">rate_limit: 58</span>
+    </div>
+  </nav>
+  </header>
+
+  
+  <main class="max-w-[1040px] mx-auto px-6 py-8 box-border">
+
+    <div class="flex flex-wrap gap-3 mb-6">
+      <div>
+        <label for="s" class="block text-sm font-semibold mb-1.5">Nom d’utilisateur</label>
+        <input id="s" value="username"
+          class="min-h-11 box-border px-3.5 py-3 rounded-lg bg-[#0B1220] text-[#E6EDF7] border border-[#33456B] font-['Inter',sans-serif] text-[15px] focus:outline-none focus:border-[#2DD4BF]">
+      </div>
+      <button class="self-end min-h-11 px-5 py-3 rounded-lg border-0 bg-[#2DD4BF] text-[#04201C] font-bold text-[15px] font-['Inter',sans-serif]">
+        Analyser
+      </button>
+    </div>
+
+    <section class="flex flex-wrap gap-6 bg-[#111A2E] border border-[#1F2A44] rounded-xl p-5">
+      <div class="flex-none w-28 h-28 flex items-center justify-center rounded-xl bg-[#13213B] border border-[#2DD4BF] text-[#2DD4BF] text-[32px] font-semibold font-['JetBrains_Mono',monospace]">
+        PN
+      </div>
+
+      <div class="flex-1 min-w-[260px]">
+        <h1 class="m-0 text-[28px] font-bold">Prénom Nom</h1>
+        <div class="font-['JetBrains_Mono',monospace] text-sm text-[#C4B5FD]">@username</div>
+        <p class="my-3">Aucune bio renseignée .</p>
+        <div class="text-sm text-[#9FB0CA]"> Inscrit le 12/03/2018</div>
+
+        <div class="flex flex-wrap gap-8 my-4">
+          <div>
+            <b class="num-depos font-['JetBrains_Mono',monospace] text-[22px] text-[#2DD4BF]" >42</b>
+            <div class="text-[13px] text-[#9FB0CA]">Dépôts</div>
+          </div>
+          <div>
+            <b class="num-abonnés font-['JetBrains_Mono',monospace] text-[22px] text-[#2DD4BF]">310</b>
+            <div class="text-[13px] text-[#9FB0CA]">Abonnés</div>
+          </div>
+          <div>
+            <b class="num-abonnements font-['JetBrains_Mono',monospace] text-[22px] text-[#2DD4BF]">57</b>
+            <div class="text-[13px] text-[#9FB0CA]">Abonnements</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <button class="shortlist-but px-5 py-3 rounded-lg border-0 bg-[#2DD4BF] text-[#04201C] font-bold text-[15px] font-['Inter',sans-serif]">
+            Ajouter à la shortlist
+          </button>
+          <a id="go-github" href="#" class="inline-flex items-center min-h-11 box-border px-5 py-3 rounded-lg border border-[#2DD4BF] text-[#2DD4BF] font-semibold text-[15px] no-underline hover:bg-[#2DD4BF]/10">
+            Voir sur GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="font-['JetBrains_Mono',monospace] text-lg mt-8 mb-4">
+      <span class="text-[#2DD4BF]">&gt;</span> Dépôts
+    </h2>
+
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4">
+
+
+      <div class="carte-repos bg-[#111A2E] border border-[#1F2A44] rounded-xl p-5">
+        <div class="font-['JetBrains_Mono',monospace] font-semibold text-[#2DD4BF]">nom-du-depot-2</div>
+        <p class="text-sm text-[#9FB0CA] mt-2 mb-4">Description du dépôt, ou « Aucune description ».</p>
+        <div class="flex flex-wrap items-center gap-3.5 text-[13px] text-[#9FB0CA]">
+          <span class="lang-pros font-['JetBrains_Mono',monospace] text-xs text-[#C4B5FD]">● JavaScript</span>
+          <span>★ 128</span>
+          <span>Forks 24</span>
+          <span id="mise">MàJ 02/11/2026</span>
+        </div>
+      </div>
+
+    </div>
+
+   
+    <div class="flex hidden flex-wrap items-center justify-between gap-3 mt-8 bg-[#111A2E] border border-[#F87171] rounded-xl p-5" >
+      <span class="font-['JetBrains_Mono',monospace] text-sm text-[#FCA5A5]">Error: erreur réseau, impossible de joindre GitHub.</span>
+      <button class="min-h-11 px-5 py-3 rounded-lg border-0 bg-[#2DD4BF] text-[#04201C] font-bold text-[15px] font-['Inter',sans-serif]">
+        Réessayer
+      </button>
+    </div>
+
+  </main>
+</body>
+</html>

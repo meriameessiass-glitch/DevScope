@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevScope - Shortlist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="min-h-screen bg-[#0B1220] bg-[radial-gradient(#1B2742_1px,transparent_1px)] bg-[length:24px_24px] text-[#E6EDF7] font-['Inter']">
+
+    <header>
+    <nav class="flex items-center justify-between flex-wrap gap-2 px-8 py-2 min-h-16 border-b border-[#1F2A44] bg-[#0B1220]">
+
+        <div class="font-semibold text-lg font-mono">
+            <span class="text-[#2DD4BF]">&lt;/&gt;</span> DevScope
+        </div>
+
+        <div class="flex items-center gap-2 flex-wrap">
+
+            <a href="index.html"
+               class="px-4 py-3 rounded-lg text-[#9FB0CA] text-[15px] hover:bg-[#13213B]">
+                Recherche
+            </a>
+
+            <a href="shortlist.html"
+               class="px-4 py-3 rounded-lg bg-[#13213B] text-[#2DD4BF] font-semibold text-[15px]">
+                Shortlist
+            </a>
+
+            <span class="text-xs bg-[#13213B] text-[#9FB0CA] px-2.5 py-1.5 rounded-md border border-[#1F2A44] font-mono">
+                rate_limit: 58
+            </span>
+
+        </div>
+    </nav>
+    </header>
+
+
+   
+    <main class="max-w-[1040px] mx-auto px-6 py-8">
+        <h1 class="text-[32px] mb-6 font-bold">
+            Shortlist
+            <span class="font-mono text-[#2DD4BF] text-xl">
+                [3 candidats]
+            </span>
+        </h1>
+        <div class="flex gap-4 flex-wrap mb-6">
+            <div class="flex-1 min-w-[220px]">
+                <label for="q" class="block text-sm font-semibold mb-1.5">
+                    Rechercher par nom ou login
+                </label>
+
+                <input type="text" id="nom" class="w-full border border-[#33456B] rounded-lg px-3.5 py-3 text-[15px] bg-[#0B1220] text-[#E6EDF7] min-h-11 font-mono outline-none focus:border-[#2DD4BF]">
+            </div>
+            <div>
+                <label for="info" class="block text-sm font-semibold mb-1.5">
+                    Trier par
+                </label>
+                <select id="info" class="border border-[#33456B] rounded-lg px-3.5 py-3 text-[15px] bg-[#0B1220] text-[#E6EDF7] min-h-11 outline-none">
+                    <option>Nom (A–Z)</option>
+                    <option>Date d'ajout</option>
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <ul class="list-none m-0 p-0 grid gap-3">
+
+            <li class="bg-[#111A2E] border border-[#1F2A44] rounded-xl p-5 flex gap-4 items-center flex-wrap">
+
+                <div class="w-14 h-14 rounded-xl bg-[#13213B] border border-[#2DD4BF] text-[#2DD4BF] font-semibold flex items-center justify-center shrink-0 font-mono">
+                    EF
+                </div>
+
+                <div class="flex-1 min-w-[200px]">
+                    <b id="nom-cond">Prénom Nom</b>
+                    <div id="loginand-date" class="text-[#9FB0CA] font-mono text-[13px]">
+                        @login-3 · ajouté le 11/11/2026
+                    </div>
+                </div>
+
+                <a href="profil.html"
+                   class="bg-transparent text-[#2DD4BF] border border-[#2DD4BF] rounded-lg px-5 py-3 text-[15px] font-semibold min-h-11 inline-flex items-center">
+                    Voir le profil
+                </a>
+
+            </li>
+
+        </ul>
+
+    </main>
+
+</body>
+</html>
