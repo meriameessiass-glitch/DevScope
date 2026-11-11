@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DevScope – Profil</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="profil.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -36,25 +37,25 @@
         Analyser
       </button>
     </div>
-
-    <section class="flex flex-wrap gap-6 bg-[#111A2E] border border-[#1F2A44] rounded-xl p-5">
+    <section class="carte-condidat">
+    <article class="flex flex-wrap gap-6 bg-[#111A2E] border border-[#1F2A44] rounded-xl p-5">
       <div class="flex-none w-28 h-28 flex items-center justify-center rounded-xl bg-[#13213B] border border-[#2DD4BF] text-[#2DD4BF] text-[32px] font-semibold font-['JetBrains_Mono',monospace]">
-        PN
+       <img class="image" src="" alt="image"> 
       </div>
 
       <div class="flex-1 min-w-[260px]">
-        <h1 class="m-0 text-[28px] font-bold">Prénom Nom</h1>
-        <div class="font-['JetBrains_Mono',monospace] text-sm text-[#C4B5FD]">@username</div>
-        <p class="my-3">Aucune bio renseignée .</p>
-        <div class="text-sm text-[#9FB0CA]"> Inscrit le 12/03/2018</div>
+        <h1 class="nom m-0 text-[28px] font-bold">Prénom Nom</h1>
+        <div class="userlogin ['JetBrains_Mono',monospace] text-sm text-[#C4B5FD]">@username</div>
+        <p class="bio my-3">Aucune bio renseignée .</p>
+        <div class="inscrit text-sm text-[#9FB0CA]"> Inscrit le 12/03/2018</div>
 
         <div class="flex flex-wrap gap-8 my-4">
           <div>
-            <b class="num-depos font-['JetBrains_Mono',monospace] text-[22px] text-[#2DD4BF]" >42</b>
+            <b class="num-depos num-depos font-['JetBrains_Mono',monospace] text-[22px] text-[#2DD4BF]" >42</b>
             <div class="text-[13px] text-[#9FB0CA]">Dépôts</div>
           </div>
           <div>
-            <b class="num-abonnés font-['JetBrains_Mono',monospace] text-[22px] text-[#2DD4BF]">310</b>
+            <b class="num-abonnes font-['JetBrains_Mono',monospace] text-[22px] text-[#2DD4BF]">310</b>
             <div class="text-[13px] text-[#9FB0CA]">Abonnés</div>
           </div>
           <div>
@@ -72,15 +73,13 @@
           </a>
         </div>
       </div>
-    </section>
+    </article>
 
     <h2 class="font-['JetBrains_Mono',monospace] text-lg mt-8 mb-4">
       <span class="text-[#2DD4BF]">&gt;</span> Dépôts
     </h2>
 
     <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4">
-
-
       <div class="carte-repos bg-[#111A2E] border border-[#1F2A44] rounded-xl p-5">
         <div class="font-['JetBrains_Mono',monospace] font-semibold text-[#2DD4BF]">nom-du-depot-2</div>
         <p class="text-sm text-[#9FB0CA] mt-2 mb-4">Description du dépôt, ou « Aucune description ».</p>
@@ -91,8 +90,8 @@
           <span id="mise">MàJ 02/11/2026</span>
         </div>
       </div>
-
     </div>
+    </section>
 
    
     <div class="flex hidden flex-wrap items-center justify-between gap-3 mt-8 bg-[#111A2E] border border-[#F87171] rounded-xl p-5" >

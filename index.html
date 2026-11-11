@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DevScope – Recherche</title>
+  <script type="module" src="recherche.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -44,13 +45,17 @@
 
         <input id="github-rech" value="" placeholder="EX_essiassmeriame"
           class="flex-1 min-w-[180px] min-h-11 box-border px-3.5 py-3 rounded-lg bg-[#0B1220] text-[#E6EDF7] border border-[#9FB0CA] font-['JetBrains_Mono',monospace] text-[15px] focus:outline-none">
-
         <button
-          class="min-h-11 px-5 py-3 rounded-lg border-0 bg-[#2DD4BF] text-[#04201C] font-bold text-[15px] font-['Inter',sans-serif]">
+          class="analyser px-5 py-3 rounded-lg border-0 bg-[#2DD4BF] text-[#04201C] font-bold text-[15px] font-['Inter',sans-serif]">
           Analyser
         </button>
+        <p class="message full-wrap m-0 mb-8 text-[17px] text-red-500 "hidden>Enter a valide login name!</p>
       </div>
 
+    </div>
+    <div class="erreur justify-center items-center gap-4 [#111A2E] border border-[#1F2A44] rounded-xl p-5" hidden>
+      <p>le login name qui vous entrez est n'existe pas</p>
+      <div class="flex h-4 w-4 border justify-center items-center border-red-500 bg-[#111A2E] rounded-full text-red-500"><p>!</p></div>
     </div>
 
     <pre class="font-['JetBrains_Mono',monospace] text-[13px] leading-[1.7] text-[#9FB0CA] mt-8 mb-0">{ "login": "username", "repos": 42, "followers": 310 }</pre>
