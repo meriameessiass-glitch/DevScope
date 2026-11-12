@@ -5,7 +5,6 @@ export async function getdatauser(username) {
         const reponse = await fetch(
             `https://api.github.com/users/${username}`
         )
-       
         console.log("2. Réponse reçue :", reponse.status)
         console.log(await reponse.clone().json())
 

@@ -80,8 +80,24 @@ const data=JSON.parse(localStorage.getItem('data'))
 afficher(data)
 localStorage.setItem('username',search1.value)
 console.log(search1.value)
-ajouter.addEventListener('click',()=>{
-
+ajouter.addEventListener('click',async()=>{
+    ajouter.textContent='le profile est ajouté avec succé'
+    const candidate={
+        login:data.login,
+        name:data.name,
+        avatar_url:data.avatar_url,
+        html_url:data.html_url,
+        language:data.langage,
+        rating:data.rating,
+        status:'',
+        note:'',
+        createdAt:new Date(data.created_at).toLocaleDateString('fr-FR')
+    }
+    const response = await fetch('https://6af5a2d2f6270fa08d685b3e.mockapi.io/Devscop/conditats', {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(candidate)
+    })
 })
 
 analyser1?.addEventListener('click',()=>{
