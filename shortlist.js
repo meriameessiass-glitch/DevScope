@@ -15,6 +15,8 @@ const STATUS_CLASSES = {
   contact: "text-amber-400 border-amber-400 bg-amber-400/10",
   refuse: "text-red-400 border-red-400 bg-red-400/10",
 }
+const modul=document.querySelector('#modal-statut')
+const Modifier=document.querySelector('#modifier')
 const canditats=await getCondidatsData()
 localStorage.setItem('canditats',JSON.stringify(canditats))
 console.log(canditats)
@@ -47,7 +49,8 @@ function afficherCandidas(canditats){
     btnModifier.className ="px-4 py-2.5 rounded-lg border border-slate-400 text-slate-100 text-sm font-semibold hover:bg-slate-400/15 transition-colors"
     btnModifier.textContent = "Modifier status"
     btnModifier.addEventListener('click',()=>{
-      
+      modul.hidden=false
+      modul.classList.add('flex')
     })
     const btnSupprimer = document.createElement("button")
     btnSupprimer.className ="px-4 py-2.5 rounded-lg border border-red-400 text-red-400 text-sm font-semibold hover:bg-red-400/10 transition-colors"
@@ -63,3 +66,6 @@ function afficherCandidas(canditats){
     })
   }
 afficherCandidas(canditats)
+Modifier.addEventListener('click',()=>{
+  modul.hidden=true
+})
