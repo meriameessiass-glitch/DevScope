@@ -20,6 +20,5 @@ export async function getdatauser(username) {
 
     } catch (err) {
         console.error("Erreur :", err)
-        return null
     }
 }

@@ -80,7 +80,12 @@ const data=JSON.parse(localStorage.getItem('data'))
 afficher(data)
 localStorage.setItem('username',search1.value)
 console.log(search1.value)
+const canditats=JSON.parse(localStorage.getItem('canditats'))
+const existe = canditats.some((c) => c.login ===search1.value )
 ajouter.addEventListener('click',async()=>{
+    if(existe){
+        ajouter.textContent='Ce profile est déjat ajouter au shortlist!'
+    }else{
     ajouter.textContent='le profile est ajouté avec succé'
     const candidate={
         login:data.login,
@@ -98,6 +103,7 @@ ajouter.addEventListener('click',async()=>{
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(candidate)
     })
+}
 })
 
 analyser1?.addEventListener('click',()=>{

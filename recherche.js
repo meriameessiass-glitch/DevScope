@@ -15,7 +15,7 @@ function verifierLogin(login) {
     return regex.test(login);
 }
 
-analyser.addEventListener('click',async function chercher() {
+analyser.addEventListener('click',async ()=> {
     erreur.hidden=true
     let login = search.value
     if (!verifierLogin(login) || login === '') {
@@ -25,7 +25,6 @@ analyser.addEventListener('click',async function chercher() {
          const data = await getdatauser(login)
         if (!data) {
              erreur.hidden = false
-             return
         }else{
             erreur.hidden=true
         localStorage.setItem('data',JSON.stringify(data))

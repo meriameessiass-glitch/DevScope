@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevScope - Shortlist</title>
+    <script type="module" src="shortlist.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -69,29 +70,18 @@
         </div>
 
 
-        <ul class="list-none m-0 p-0 grid gap-3">
-
-            <li class="bg-[#111A2E] border border-[#1F2A44] rounded-xl p-5 flex gap-4 items-center flex-wrap">
-
-                <div class="w-14 h-14 rounded-xl bg-[#13213B] border border-[#2DD4BF] text-[#2DD4BF] font-semibold flex items-center justify-center shrink-0 font-mono">
-                    EF
-                </div>
-
-                <div class="flex-1 min-w-[200px]">
-                    <b id="nom-cond">Prénom Nom</b>
-                    <div id="loginand-date" class="text-[#9FB0CA] font-mono text-[13px]">
-                        @login-3 · ajouté le 11/11/2026
-                    </div>
-                </div>
-
-                <a href="profil.html"
-                   class="bg-transparent text-[#2DD4BF] border border-[#2DD4BF] rounded-lg px-5 py-3 text-[15px] font-semibold min-h-11 inline-flex items-center">
-                    Voir le profil
-                </a>
-
-            </li>
-
-        </ul>
+        <div class="list-cand m-0 p-0 grid gap-3"></div>
+        <div class=" fixed inset-0 z-50 items-center justify-center bg-black/60 p-4 " >
+           <label class="flex-1 cursor-pointer">
+                <input type="radio" name="statut" value="refus" class="peer sr-only" checked>
+                <span class="block text-center px-4 py-2.5 rounded-lg border border-[#33456B] text-[#9FB0CA] text-sm font-semibold transition-colors hover:bg-red-400/5 peer-checked:text-red-400 peer-checked:border-red-400 peer-checked:bg-red-400/10 peer-focus-visible:ring-2 peer-focus-visible:ring-red-400/50">refuser</span>
+           </label>
+            <label class="flex-1 cursor-pointer">
+                <input type="radio" name="statut" value="contact" class="peer sr-only ">
+                <span class="block text-center px-4 py-2.5 rounded-lg border border-[#33456B] text-[#9FB0CA] text-sm font-semibold transition-colors hover:bg-amber-400/5 peer-checked:text-amber-400 peer-checked:border-amber-400 peer-checked:bg-amber-400/10 peer-focus-visible:ring-2 peer-focus-visible:ring-amber-400/50">à contacter</span>
+           </label>
+           <button class="full-wrap">Modifier</button>
+        </div>
 
     </main>
 
