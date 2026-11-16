@@ -11,10 +11,26 @@ export async function getCondidatsData(){
         return null
   }
 }
+async function setStatus(cand,id){
+  try{
+  const reponse=await fetch(`https://6af5a2d2f6270fa08d685b3e.mockapi.io/Devscop/conditats/${id}`,{
+    method:"PUT",
+    headers: { "Content-Type": "application/json" },
+    body:JSON.stringify(cand)
+  })
+  console.log("Status HTTP :", reponse.status)
+  if (!reponse.ok) {
+            throw new Error(`Erreur HTTP : ${reponse.status}`);
+        }
+}
+  catch(er){
+    console.error("Erreur:",er)
+  }
+}
 let id
 const STATUS_CLASSES = {
-  contact: "text-amber-400 border-amber-400 bg-amber-400/10",
-  refuse: "text-red-400 border-red-400 bg-red-400/10",
+  contacter: "text-amber-400 border-amber-400 bg-amber-400/10",
+  refusé: "text-red-400 border-red-400 bg-red-400/10",
 }
 const modul=document.querySelector('#modal-statut')
 const Modifier=document.querySelector('#modifier')
@@ -53,6 +69,30 @@ function afficherCandidas(canditats){
       modul.hidden=false
       modul.classList.add('flex')
       id=c.id
+      Modifier.addEventListener('submit',async(event)=>{
+      event.preventDefault()
+      const d = new FormData(Modifier)
+      const statut=d.get('statut')
+      const cand={
+        login:c.login,
+        name:c.name,
+        avatar_url:c.avatar_url,
+        language:c.language,
+        status:statut,
+        createdAT:c.createdAT,
+        rating:c.rating,
+        note:c.note,
+        html_url:c.html_url,
+        id:c.id,
+        createdAt:c.createdAT
+
+      }
+      await setStatus(cand,id)
+      modul.hidden=true
+      modul.classList.remove("flex")
+      container.innerHTML=''
+      afficherCandidas(canditats)
+    })
     })
     const btnSupprimer = document.createElement("button")
     btnSupprimer.addEventListener('click',async()=>{
@@ -65,36 +105,13 @@ function afficherCandidas(canditats){
     btnVoir.addEventListener("click", () => {
       window.location.href = `profile.html`
     })
-    btnModifier.addEventListener("click", () => {
-    })
     condidat.append(avatar, info, actions)
     container.append(condidat)
     })
   }
 afficherCandidas(canditats)
-Modifier.addEventListener('submit',async(event)=>{
-  event.preventDefault()
-  const d = new FormData(Modifier)
-  const statut=d.get('statut')
-  await setStatus(statut,id)
-  afficherCandidas(canditats)
-})
-async function setStatus(statut,id){
-  try{
-  const reponse=await fetch(`https://6af5a2d2f6270fa08d685b3e.mockapi.io/Devscop/conditats/${id}`,{
-    method:"PATCH",
-    headers: { "Content-Type": "application/json" },
-    body:JSON.stringify({status:statut})
-  })
-  console.log("Status HTTP :", reponse.status)
-  if (!reponse.ok) {
-            throw new Error(`Erreur HTTP : ${reponse.status}`);
-        }
-}
-  catch(er){
-    console.error("Erreur:",er)
-  }
-}
+
+
 async function remCand(idsup){
   try{
     const reponse= await fetch(`https://6af5a2d2f6270fa08d685b3e.mockapi.io/Devscop/conditats/${idsup}`,{
