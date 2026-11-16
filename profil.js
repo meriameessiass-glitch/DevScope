@@ -80,9 +80,24 @@ const data=JSON.parse(localStorage.getItem('data'))
 afficher(data)
 localStorage.setItem('username',search1.value)
 console.log(search1.value)
-const canditats=JSON.parse(localStorage.getItem('canditats'))
-const existe = canditats.some((c) => c.login ===search1.value )
+
+export async function verifierCand(login) {
+    try {
+        const reponse = await fetch(
+            `https://6af5a2d2f6270fa08d685b3e.mockapi.io/Devscop/conditats?login=${encodeURIComponent(login)}`
+        )
+        if (!reponse.ok) {
+            throw new Error(`Erreur HTTP : ${reponse.status}`)
+        }
+        const utilisateurs = await reponse.json()
+        return utilisateurs.length > 0
+    } catch (erreur) {
+        console.error("Erreur :", erreur)
+        return false
+    }
+}
 ajouter.addEventListener('click',async()=>{
+    const existe=await verifierCand(data.login)
     if(existe){
         ajouter.textContent='Ce profile est déjat ajouter au shortlist!'
     }else{

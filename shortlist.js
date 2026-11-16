@@ -11,6 +11,7 @@ export async function getCondidatsData(){
         return null
   }
 }
+let id
 const STATUS_CLASSES = {
   contact: "text-amber-400 border-amber-400 bg-amber-400/10",
   refuse: "text-red-400 border-red-400 bg-red-400/10",
@@ -22,7 +23,7 @@ localStorage.setItem('canditats',JSON.stringify(canditats))
 console.log(canditats)
 const container=document.querySelector('.list-cand')
 function afficherCandidas(canditats){
-    canditats.forEach(c => {
+    canditats.forEach((c,index) => {
     const condidat=document.createElement('div')
     condidat.className ="flex flex-wrap items-center gap-4 px-6 py-5 bg-[#111a2e] border border-[#1e2a44] rounded-xl"
     const avatar = document.createElement("img")
@@ -51,8 +52,13 @@ function afficherCandidas(canditats){
     btnModifier.addEventListener('click',()=>{
       modul.hidden=false
       modul.classList.add('flex')
+      id=c.id
     })
     const btnSupprimer = document.createElement("button")
+    btnSupprimer.addEventListener('click',async()=>{
+      await remCand(c.id)
+      condidat.remove()
+    })
     btnSupprimer.className ="px-4 py-2.5 rounded-lg border border-red-400 text-red-400 text-sm font-semibold hover:bg-red-400/10 transition-colors"
     btnSupprimer.textContent = "Supprimer"
     actions.append(btnVoir, btnModifier, btnSupprimer)
@@ -66,6 +72,43 @@ function afficherCandidas(canditats){
     })
   }
 afficherCandidas(canditats)
-Modifier.addEventListener('click',()=>{
-  modul.hidden=true
+Modifier.addEventListener('submit',async(event)=>{
+  event.preventDefault()
+  const d = new FormData(Modifier)
+  const statut=d.get('statut')
+  await setStatus(statut,id)
+  afficherCandidas(canditats)
 })
+async function setStatus(statut,id){
+  try{
+  const reponse=await fetch(`https://6af5a2d2f6270fa08d685b3e.mockapi.io/Devscop/conditats/${id}`,{
+    method:"PATCH",
+    headers: { "Content-Type": "application/json" },
+    body:JSON.stringify({status:statut})
+  })
+  console.log("Status HTTP :", reponse.status)
+  if (!reponse.ok) {
+            throw new Error(`Erreur HTTP : ${reponse.status}`);
+        }
+}
+  catch(er){
+    console.error("Erreur:",er)
+  }
+}
+async function remCand(idsup){
+  try{
+    const reponse= await fetch(`https://6af5a2d2f6270fa08d685b3e.mockapi.io/Devscop/conditats/${idsup}`,{
+      method:"DELETE",
+     
+    })
+    if (!reponse.ok) {
+            throw new Error(`Erreur HTTP : ${reponse.status}`);
+        }
+        console.log("Candidat supprimé avec succès")
+        return true
+  }
+  catch (erreur) {
+        console.error("Erreur :", erreur);
+        return false;
+    }
+}
