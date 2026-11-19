@@ -11,7 +11,7 @@ const main=document.querySelector('.main')
 const analyser1=document.querySelector('.analyser1')
 const search1=document.querySelector('#search')
 const ajouter=document.querySelector('.shortlist-but')
-
+const nomrep=document.querySelector('#nomrep')
 
 function creerCarte(repo) {
     const carte = document.createElement('article')
@@ -55,7 +55,9 @@ catch(error){
     console.error(error)
     return []
 }}
-async function afficher(data) {
+const data=JSON.parse(localStorage.getItem('data'))
+const repos=await gitrepos(data)
+async function afficher(repos) {
     userlogin.textContent = '@' + data.login
     image.src = data.avatar_url
     image.alt = 'Avatar de ' + data.login
@@ -71,13 +73,12 @@ async function afficher(data) {
 
     lienGithub.href = data.html_url
     search1.value = data.login
-    const repos=await gitrepos(data)
+    main.innerHTML=''
     repos.forEach(rep => {
         main.append(creerCarte(rep))
     })
 }
-const data=JSON.parse(localStorage.getItem('data'))
-afficher(data)
+afficher(repos)
 localStorage.setItem('username',search1.value)
 console.log(search1.value)
 
@@ -96,6 +97,9 @@ export async function verifierCand(login) {
         return false
     }
 }
+
+
+
 ajouter.addEventListener('click',async()=>{
     const existe=await verifierCand(data.login)
     if(existe){
@@ -108,7 +112,7 @@ ajouter.addEventListener('click',async()=>{
         avatar_url:data.avatar_url,
         html_url:data.html_url,
         language:data.langage,
-        rating:data.rating,
+        rating:'',
         status:'',
         note:'',
         createdAt:new Date(data.created_at).toLocaleDateString('fr-FR')
@@ -121,7 +125,44 @@ ajouter.addEventListener('click',async()=>{
 }
 })
 
+
 analyser1?.addEventListener('click',()=>{
     localStorage.setItem('username',search1.value)
     window.location.href='index.html'
 })
+
+
+function recherche(rech,lang,repos){
+    if(lang==='tous'  && !rech){
+        return repos
+    } else if(!rech){
+         const filtrer=repos.filter(rep=> (rep.language? rep.language===lang:false) )
+         return filtrer
+    }else if(lang==='tous'){
+        const filtrer=repos.filter(rep=>rep.name.trim().toLowerCase().includes(rech.trim().toLowerCase()))
+        return filtrer
+    }else{
+        const filtrer=repos.filter(rep=>rep.name.trim().toLowerCase().includes(rech.trim().toLowerCase())&& (rep.language? rep.language===lang:false))
+        return filtrer
+
+    }
+}
+let lang=''
+console.log('test')
+const languefil=document.querySelector('.langage')
+languefil.addEventListener('click', (event) => {
+    if (event.target.type === 'radio') {
+        lang = event.target.value;
+       console.log(lang)
+        const filtrer = recherche(nomrep.value, lang, repos);
+        afficher(filtrer);
+    }
+});
+nomrep.addEventListener('input',()=>{
+    const filtrer=recherche(nomrep.value,lang,repos)
+    afficher(filtrer)
+})
+
+
+
+

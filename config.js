@@ -1,1 +1,1 @@
-export const api='https://6af5a2d2f6270fa08d685b3e.mockapi.io/Devscop/conditats'
+const api='https://6af5a2d2f6270fa08d685b3e.mockapi.io/Devscop/conditats'
