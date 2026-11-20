@@ -58,7 +58,8 @@ catch(error){
 }}
 const login=JSON.parse(localStorage.getItem('user'))
 const données=getDataLocalstorage(login)
-const data=données.user
+console.log(données)
+const data=données.data
 console.log(data)
 const repos=await gitrepos(data)
 async function afficher(repos) {

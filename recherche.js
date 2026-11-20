@@ -20,11 +20,13 @@ analyser.addEventListener('click',async ()=> {
     } else {
         message.hidden = true
          const data=await ChercheLocalStorage(login,getdatauser(login))
-        if (!data) {
+         console.log(data)
+        if (data===false) {
+            console.data
              erreur.hidden = false
         }else{
             erreur.hidden=true
-        window.location.href='profil.html'
+        // window.location.href='profil.html'
         }
     }
 })
