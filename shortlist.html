@@ -73,7 +73,7 @@
     </main>
  <div id="modal-statut" class=" fixed inset-0 z-[100] items-center justify-center bg-black/60 p-4" hidden>
 
-  <form id="modifier" class=" w-full max-w-sm  rounded-xl border border-[#33456B] bg-[#0B1220] p-6 shadow-2xl">
+   <form id="modifier" class=" w-full max-w-sm  rounded-xl border border-[#33456B] bg-[#0B1220] p-6 shadow-2xl">
 
     <div class="cont flex flex-col gap-1.5 mb-3">
       <label class=" cursor-pointer">
@@ -130,6 +130,27 @@
 
     <button  class="full-wrap w-full">Enregistrer </button>
   </form>
+
+</div>
+<div class="sup fixed inset-0 z-[100]  items-center justify-center bg-black/60 p-4 "hidden >
+
+    <form class=" flex flex-col items-center gap-5 w-full max-w-sm h-fit bg-[#0B1220] rounded-lg border border-[#33456B] p-6 shadow-2xl">
+
+        <h2 class="text-center">
+            Vous êtes sûr que vous voulez supprimer ce candidat ?
+        </h2>
+
+        <div class="flex justify-center items-center gap-3 w-full">
+            <button type="button" class="ok flex-1 bg-red-500 text-lg rounded-lg border border-[#33456B] p-2">
+                OUI
+            </button>
+
+            <button type="button" class="no flex-1 bg-zinc-400 text-lg rounded-lg border border-[#33456B] p-2">
+                NON
+            </button>
+        </div>
+
+    </form>
 
 </div>
 

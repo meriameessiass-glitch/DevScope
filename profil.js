@@ -1,3 +1,4 @@
+import { getDataLocalstorage } from "./catch.js"
 const userlogin = document.querySelector('.userlogin')
 const image = document.querySelector('.image')
 const nom = document.querySelector('.nom')
@@ -55,7 +56,10 @@ catch(error){
     console.error(error)
     return []
 }}
-const data=JSON.parse(localStorage.getItem('data'))
+const login=JSON.parse(localStorage.getItem('user'))
+const données=getDataLocalstorage(login)
+const data=données.user
+console.log(data)
 const repos=await gitrepos(data)
 async function afficher(repos) {
     userlogin.textContent = '@' + data.login
@@ -79,8 +83,6 @@ async function afficher(repos) {
     })
 }
 afficher(repos)
-localStorage.setItem('username',search1.value)
-console.log(search1.value)
 
 export async function verifierCand(login) {
     try {
@@ -127,7 +129,6 @@ ajouter.addEventListener('click',async()=>{
 
 
 analyser1?.addEventListener('click',()=>{
-    localStorage.setItem('username',search1.value)
     window.location.href='index.html'
 })
 
