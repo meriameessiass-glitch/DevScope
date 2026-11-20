@@ -25,7 +25,7 @@
   </header>
 
   
-  <main class="max-w-[1040px] mx-auto px-6 py-8 box-border">
+  <main class=" [1040px] mx-auto px-6 py-8 box-border">
 
     <div class="flex flex-wrap gap-3 mb-6">
       <div>
@@ -37,8 +37,8 @@
         Analyser
       </button>
     </div>
-    <section class="carte-condidat">
-    <article class="flex flex-wrap gap-6 bg-[#111A2E] border border-[#1F2A44] rounded-xl p-5">
+    <section class="carte-condidat flex flex-col gap-4">
+     <article class="flex flex-wrap gap-6 bg-[#111A2E] border border-[#1F2A44] rounded-xl p-5">
       <div class="flex-none w-28 h-28 flex items-center justify-center rounded-xl bg-[#13213B] border border-[#2DD4BF] text-[#2DD4BF] text-[32px] font-semibold font-['JetBrains_Mono',monospace]">
        <img class="image" src="" alt="image"> 
       </div>
@@ -73,15 +73,76 @@
           </a>
         </div>
       </div>
-    </article>
+     </article>
 
-    <h2 class="font-['JetBrains_Mono',monospace] text-lg mt-8 mb-4">
+     <h2 class="font-['JetBrains_Mono',monospace] text-lg mt-8 mb-4">
       <span class="text-[#2DD4BF]">&gt;</span> Dépôts
-    </h2>
-    <section class="main flex-col ">
-
-    </section>
-    </section>
-  </main>
+     </h2>
+     <div class="flex gap-8 ">
+       <div class="flex-1 min-w-[220px]">
+            <label for="nomrep" class="block text-sm font-semibold mb-1">
+                    Rechercher par nom de dépos:
+            </label>
+                <input type="text" id="nomrep" class="w-full border border-[#33456B] rounded-lg px-3 py-2 text-[15px] bg-[#0B1220] text-[#E6EDF7] min-h-11 font-mono outline-none focus:border-[#2DD4BF]">
+        </div>
+            <div class="flex-1 min-w-[220px]">
+                <label class="block text-sm font-semibold mb-2">Language :</label>
+                <div class="langage flex flex-wrap gap-3">
+                  <label class="cursor-pointer">
+                     <input type="radio" name="langage" value="tous" class="filtre-tous peer sr-only" checked>
+                     <span class="block px-4 py-2 rounded-lg border border-[#33456B] text-[#9FB0CA] text-sm font-semibold
+                         hover:bg-[#1F2A44] transition
+                         peer-checked:bg-[#2DD4BF] peer-checked:border-[#2DD4BF] peer-checked:text-[#0B1220]">
+                      Tous
+                      </span>
+                  </label>
+                  <label class="cursor-pointer">
+                      <input type="radio" name="langage" value="JavaScript" class="filtre-javascript peer sr-only">
+                      <span class="block px-4 py-2 rounded-lg border border-[#F7DF1E] text-[#F7DF1E] text-sm font-semibold
+                         hover:bg-[#F7DF1E]/10 transition
+                         peer-checked:bg-[#F7DF1E] peer-checked:text-[#1a1a1a]">
+                          JavaScript
+                      </span>
+                 </label>
+                 <label class="cursor-pointer">
+                    <input type="radio" name="langage" value="Python" class="filtre-python peer sr-only">
+                    <span class="block px-4 py-2 rounded-lg border border-[#3776AB] text-[#5B9BD5] text-sm font-semibold
+                         hover:bg-[#3776AB]/10 transition
+                         peer-checked:bg-[#3776AB] peer-checked:border-[#FFD43B] peer-checked:text-white">
+                    Python
+                    </span>
+                 </label>
+                 <label class="cursor-pointer">
+                   <input type="radio" name="langage" value="HTML" class="filtre-html peer sr-only">
+                   <span class="block px-4 py-2 rounded-lg border border-[#E34F26] text-[#E34F26] text-sm font-semibold
+                         hover:bg-[#E34F26]/10 transition
+                         peer-checked:bg-[#E34F26] peer-checked:text-white">
+                         HTML
+                   </span>
+                 </label>
+                 <label class="cursor-pointer">
+                  <input type="radio" name="langage" value="CSS" class="filtre-css peer sr-only">
+                  <span class="block px-4 py-2 rounded-lg border border-[#1572B8] text-[#4DA3E8] text-sm font-semibold
+                         hover:bg-[#1572B8]/10 transition
+                         peer-checked:bg-[#1572B8] peer-checked:text-white">
+                      CSS
+                  </span>
+                 </label>
+                 <label class="cursor-pointer">
+                     <input type="radio" name="langage" value="Java" class="filtre-java peer sr-only">
+                     <span class="block px-4 py-2 rounded-lg border border-[#ED8B00] text-[#ED8B00] text-sm font-semibold
+                         hover:bg-[#ED8B00]/10 transition
+                         peer-checked:bg-[#ED8B00] peer-checked:text-white">
+                     Java
+                     </span>
+                 </label>
+           
+                </div>
+        </div>
+     </div>
+       
+  <section class="main flex flex-col gap-4 "></section>
+  </section>
+</main>
 </body>
 </html>
