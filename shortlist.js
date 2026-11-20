@@ -11,6 +11,7 @@ export async function getCondidatsData(){
         return null
   }
 }
+
 async function setStatus(cand,id){
   try{
   const reponse= await fetch(`https://6af5a2d2f6270fa08d685b3e.mockapi.io/Devscop/conditats/${id}`,{
@@ -38,7 +39,7 @@ const STATUS_CLASSES = {
 const modul=document.querySelector('#modal-statut')
 const Modifier=document.querySelector('#modifier')
 const canditats=await getCondidatsData()
-console.log(canditats)
+console.log(canditats[0].html_url)
 const container=document.querySelector('.list-cand')
 function afficherCandidas(canditats){
     canditats.forEach((c) => {
@@ -54,7 +55,7 @@ function afficherCandidas(canditats){
     nom.textContent = c.nom
     const meta = document.createElement("p")
     meta.className = "text-sm text-slate-400 font-mono"
-    meta.textContent = `@${c.login} · ajouté le`+  new  Date(c.createdAt).toLocaleDateString('fr-FR')
+    meta.textContent = `@${c.login} · ajouté le `+  new  Date(c.createdAt).toLocaleDateString('fr-FR')
     const stat = document.createElement("span")
     stat.className = `inline-block cursor-pointer mt-2.5 px-2.5 py-0.5 rounded-full text-xs font-semibold border ${STATUS_CLASSES[c.status]}`
     stat.textContent = c.status
@@ -68,9 +69,11 @@ function afficherCandidas(canditats){
     info.append(nom, meta, stat,rating,commentaire)
     const actions = document.createElement("div")
     actions.className = "flex flex-wrap gap-2.5 w-full"
-    const btnVoir = document.createElement("button")
+    const btnVoir = document.createElement("a")
     btnVoir.className ="status px-4 py-2.5 rounded-lg border border-teal-400 text-teal-400 text-sm font-semibold hover:bg-teal-400/10 transition-colors"
     btnVoir.textContent = "Voir le profil"
+    btnVoir.href=c.html_url
+    console.log(c.html_url)
     const btnModifier = document.createElement("button")
     btnModifier.className ="px-4 py-2.5 rounded-lg border border-slate-400 text-slate-100 text-sm font-semibold hover:bg-slate-400/15 transition-colors"
     btnModifier.textContent = "Modifier"
@@ -111,9 +114,6 @@ function afficherCandidas(canditats){
     btnSupprimer.className ="px-4 py-2.5 rounded-lg border border-red-400 text-red-400 text-sm font-semibold hover:bg-red-400/10 transition-colors"
     btnSupprimer.textContent = "Supprimer"
     actions.append(btnVoir, btnModifier, btnSupprimer)
-    btnVoir.addEventListener("click", () => {
-      window.location.href = `profile.html`
-    })
     condidat.append(avatar, info, actions)
     container.append(condidat)
     })

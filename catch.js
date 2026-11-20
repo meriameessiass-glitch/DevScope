@@ -10,9 +10,6 @@ function stock(key, data) {
 function sup(key){
     
 }
-export function TempVerifier(){
-
-}
 export async function ChercheLocalStorage(login,fetch){
     const object=JSON.parse(localStorage.getItem(`${login}`))
     if(object && Date.now()-object.savedAt < dur){

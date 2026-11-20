@@ -26,7 +26,7 @@ analyser.addEventListener('click',async ()=> {
              erreur.hidden = false
         }else{
             erreur.hidden=true
-        // window.location.href='profil.html'
+        window.location.href='profil.html'
         }
     }
 })

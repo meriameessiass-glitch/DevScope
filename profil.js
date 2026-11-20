@@ -118,7 +118,7 @@ ajouter.addEventListener('click',async()=>{
         rating:'',
         status:'',
         note:'',
-        createdAt:new Date(data.created_at).toLocaleDateString('fr-FR')
+        createdAt:data.created_at
     }
     const response = await fetch('https://6af5a2d2f6270fa08d685b3e.mockapi.io/Devscop/conditats', {
       method: "POST",
